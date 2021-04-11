@@ -9,3 +9,4 @@ environment:
 
 dependencies:
   http: ^0.12.2
+  uuid: ^2.2.2
