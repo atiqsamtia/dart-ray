@@ -1,9 +1,15 @@
 library ray;
 
 import 'package:ray/payload_factory.dart';
+import 'package:ray/payloads/clear_all_payload.dart';
+import 'package:ray/payloads/color_payload.dart';
+import 'package:ray/payloads/exception_payload.dart';
 import 'package:ray/payloads/hide_app_payload.dart';
+import 'package:ray/payloads/hide_payload.dart';
+import 'package:ray/payloads/json_string_payload.dart';
 import 'package:ray/payloads/new_screen_payload.dart';
 import 'package:ray/payloads/notify_payload.dart';
+import 'package:ray/payloads/remove_payload.dart';
 import 'package:ray/payloads/show_app_payload.dart';
 import 'package:ray/request.dart';
 import 'package:uuid/uuid.dart';
@@ -44,6 +50,34 @@ class Ray {
 
   Ray hideApp() {
     var payload = HideAppPayLoad();
+    return this.sendRequest([payload]);
+  }
+
+  Ray hide() {
+    var payload = HidePayload();
+    return this.sendRequest([payload]);
+  }
+
+  Ray remove() {
+    var payload = RemovePayload();
+    return this.sendRequest([payload]);
+  }
+
+  Ray color(String color) {
+    var payload = ColorPayload(color);
+
+    return this.sendRequest([payload]);
+  }
+
+  Ray toJson(var value) {
+    var payload = JsonStringPayload(value);
+
+    return this.sendRequest([payload]);
+  }
+
+  Ray clearAll() {
+    var payload = new ClearAllPayload();
+
     return this.sendRequest([payload]);
   }
 
