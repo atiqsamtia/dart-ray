@@ -12,10 +12,42 @@ Update dependencies
 ```
 flutter pub get
 ```
+Now in your `Dart` code, you can use: 
+````dart
+import 'package:ray/ray.dart';
+````
+Initialize `Ray` with your config
+```dart
+main(){
+    Ray.init(
+      enabled: true,
+      host: '192.168.50.45'
+    );
+}
+```
+`host` is your development machine's IP where Ray App is running
 
 ## Usage
 
-TODO
+use `ray()` helper to send values
+```dart
+ray('Hello from Flutter');
+
+ray('This is green message').green();
+
+ray().notify('Notification content here');
+
+ray().clearAll();
+
+ray().newScreen();
+
+ray().newScreen('Screen');
+
+ray().showApp();
+
+ray().hideApp();
+
+```
 
 ## Meta
 
