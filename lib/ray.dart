@@ -3,7 +3,6 @@ library ray;
 import 'package:ray/payload_factory.dart';
 import 'package:ray/payloads/clear_all_payload.dart';
 import 'package:ray/payloads/color_payload.dart';
-import 'package:ray/payloads/exception_payload.dart';
 import 'package:ray/payloads/hide_app_payload.dart';
 import 'package:ray/payloads/hide_payload.dart';
 import 'package:ray/payloads/json_string_payload.dart';
@@ -15,6 +14,8 @@ import 'package:ray/request.dart';
 import 'package:uuid/uuid.dart';
 
 import 'client.dart';
+
+export 'package:ray/concerns/ray_colors.dart';
 
 export 'helpers.dart';
 

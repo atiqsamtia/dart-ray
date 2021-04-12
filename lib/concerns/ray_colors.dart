@@ -1,6 +1,6 @@
 import 'package:ray/ray.dart';
 
-mixin RayColors on Ray {
+extension RayColors on Ray{
   Ray green() {
     return this.color('green');
   }
