@@ -7,7 +7,7 @@ class NewScreenPayload extends Payload {
 
   @override
   String getType() {
-    return 'new screen';
+    return 'new_screen';
   }
 
   @override

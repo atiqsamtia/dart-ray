@@ -1,7 +1,10 @@
 library ray;
 
 import 'package:ray/payload_factory.dart';
+import 'package:ray/payloads/hide_app_payload.dart';
+import 'package:ray/payloads/new_screen_payload.dart';
 import 'package:ray/payloads/notify_payload.dart';
+import 'package:ray/payloads/show_app_payload.dart';
 import 'package:ray/request.dart';
 import 'package:uuid/uuid.dart';
 
@@ -26,6 +29,21 @@ class Ray {
   Ray notify(String text) {
     print('in notify');
     var payload = NotifyPayload(text);
+    return this.sendRequest([payload]);
+  }
+
+  Ray newScreen([String name = '']) {
+    var payload = NewScreenPayload(name);
+    return this.sendRequest([payload]);
+  }
+
+  Ray showApp() {
+    var payload = ShowAppPayload();
+    return this.sendRequest([payload]);
+  }
+
+  Ray hideApp() {
+    var payload = HideAppPayLoad();
     return this.sendRequest([payload]);
   }
 

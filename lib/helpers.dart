@@ -1,5 +1,5 @@
 import 'package:ray/ray.dart';
 
-ray(dynamic data) {
+Ray ray([dynamic data = null]) {
   return Ray()..send(data);
 }

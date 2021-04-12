@@ -2,11 +2,12 @@ import 'package:ray/payloads/payload.dart';
 
 class JsonStringPayload extends Payload {
   var value;
+
   JsonStringPayload(this.value);
 
   @override
   String getType() {
-    return "json_string";
+    return 'json_string';
   }
 
   @override
