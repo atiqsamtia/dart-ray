@@ -25,12 +25,20 @@ class Ray {
   String uuid;
 
   static bool enabled;
+  static bool settingsEnabled;
+  static String host;
+  static int port;
 
   Ray() {
-//    TODO Settings
-    client = Client(host: '192.168.50.45');
+    client = Client(host: host, portNumber: port);
     uuid = Uuid().v1();
-    enabled = true;
+    enabled = enabled ?? settingsEnabled ?? true;
+  }
+
+  static void init({bool enabled, String host = 'localhost', int port = 23517}) {
+    Ray.settingsEnabled = enabled;
+    Ray.host = host;
+    Ray.port = port;
   }
 
   Ray notify(String text) {
@@ -91,6 +99,9 @@ class Ray {
   }
 
   Ray sendRequest(payloads, {meta = const {}}) {
+    if (!enabled) {
+      return this;
+    }
     var request = Request(this.uuid, payloads);
     client.send(request);
     return this;
